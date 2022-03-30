@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe TweetsController, type: :controller do
   render_views
 
-  describe 'POST /tweets' do
+  context 'POST /tweets' do
     it 'renders new tweet object' do
       user = FactoryBot.create(:user)
       session = user.sessions.create
@@ -43,7 +43,7 @@ RSpec.describe TweetsController, type: :controller do
     end
   end
 
-  describe 'GET /tweets' do
+  context 'GET /tweets' do
     it 'renders all tweets object' do
       user = FactoryBot.create(:user)
       FactoryBot.create(:tweet, user: user)
@@ -69,7 +69,7 @@ RSpec.describe TweetsController, type: :controller do
     end
   end
 
-  describe 'DELETE /tweets/:id' do
+  context 'DELETE /tweets/:id' do
     it 'renders success' do
       user = FactoryBot.create(:user)
       session = user.sessions.create
@@ -94,7 +94,7 @@ RSpec.describe TweetsController, type: :controller do
     end
   end
 
-  describe 'GET /users/:username/tweets' do
+  context 'GET /users/:username/tweets' do
     it 'renders tweets by username' do
       user_1 = FactoryBot.create(:user, username: 'user_1', email: 'user_1@user.com')
       user_2 = FactoryBot.create(:user, username: 'user_2', email: 'user_2@user.com')
