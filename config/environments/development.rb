@@ -12,6 +12,9 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  # Using the local settings for Active Storage
+  config.active_storage.service = :local
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
@@ -56,4 +59,7 @@ Rails.application.configure do
   config.generators do |g|
     g.test_framework nil
   end
+
+  # Using the Amazon S3 settings for Active Storage
+  config.active_storage.service = :amazon
 end
